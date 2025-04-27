@@ -1,0 +1,9 @@
+services:
+  kotlin-app:
+    build:
+      context: .             # Path to your Dockerfile
+      dockerfile: Dockerfile # Optional if your file is literally named Dockerfile
+    container_name: kotlin-dev
+    working_dir: /app
+    stdin_open: true         # Keep stdin open for interactive use
+    tty: true                # Allocate a pseudo-TTY
