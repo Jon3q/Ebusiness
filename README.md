@@ -26,7 +26,7 @@ Zadanie 2 Scala
 
 ❌ 5.0 Należy dodać konfigurację CORS dla dwóch hostów dla metod CRUD
 
-[Scala folder]()
+[Scala folder](https://github.com/Jon3q/Ebusiness/tree/main/Scala/play-scala-seed)
 
 Zadanie 2 Kotlin
 
