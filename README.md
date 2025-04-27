@@ -40,4 +40,4 @@ Zadanie 2 Kotlin
 
 ❌ 5.0 Aplikacja obsłuży dodatkowo jedną z platform: Slack, Messenger, Webex
 
-[Kotlin folder]()
+[Kotlin folder](https://github.com/Jon3q/Ebusiness/tree/main/Kotlin/ktor-project)
