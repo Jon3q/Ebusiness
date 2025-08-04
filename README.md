@@ -28,7 +28,7 @@ Zadanie 2 Scala
 
 [Scala folder](https://github.com/Jon3q/Ebusiness/tree/main/Scala/play-scala-seed)
 
-Zadanie 2 Kotlin
+Zadanie 3 Kotlin
 
 ✅ 3.0 Należy stworzyć aplikację kliencką w Kotlinie we frameworku Ktor, która pozwala na przesyłanie wiadomości na platformę Discord
 
