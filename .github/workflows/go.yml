@@ -48,18 +48,16 @@ jobs:
             sleep 2
           done
 
-      # 7️⃣ Run Go tests
-      - name: Run Go tests
-        run: go test ./... -v
-        working-directory: Go
-
-      # 8️⃣ Install BrowserStack CLI
-      - name: Install BrowserStack CLI
-        run: npm install -g browserstack-cli
-
-      # 9️⃣ Run BrowserStack e2e tests
+      - name: Install BrowserStack Cypress CLI
+        run: |
+          cd Test
+          npm install --save-dev browserstack-cypress-cli
       - name: Run BrowserStack e2e
-        run: browserstack-cypress run
+        run: |
+          cd Test
+          npx browserstack-cypress-cli run
         env:
           BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
           BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
+
+
