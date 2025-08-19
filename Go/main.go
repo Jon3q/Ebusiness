@@ -1,6 +1,8 @@
 package main
 
 import (
+	"net/http"
+
 	sqlite "github.com/glebarez/sqlite"
 	"github.com/labstack/echo/v4"
 	"gorm.io/gorm"
@@ -19,6 +21,9 @@ func main() {
 	db.AutoMigrate(&Category{}, &Product{}, &Customer{}, &Order{}, &Cart{})
 
 	e := echo.New()
+	e.GET("/ping", func(c echo.Context) error {
+	return c.String(http.StatusOK, "pong")
+	})
 
 	e.POST("/products", createProduct)
 	e.GET("/products", listProducts)
@@ -37,6 +42,12 @@ func main() {
 
 	e.POST("/carts", createCart)
 	e.GET("/carts", listCarts)
+
+	e.PUT("/categories/:id", updateCategory)
+	e.DELETE("/categories/:id", deleteCategory)
+	e.DELETE("/customers/:id", deleteCustomer)
+	e.DELETE("/orders/:id", deleteOrder)
+	e.DELETE("/carts/:id", deleteCart)
 
 	e.Logger.Fatal(e.Start(":8080"))
 }
