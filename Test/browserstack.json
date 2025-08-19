@@ -1,0 +1,22 @@
+{
+  "auth": {
+    "username": "<BROWSERSTACK_USERNAME>",
+    "access_key": "<BROWSERSTACK_ACCESS_KEY>"
+  },
+  "browsers": [{
+      "browser": "chrome",
+      "os": "Windows 10",
+      "versions": ["latest", "latest - 1"]
+    }
+  ],
+  "run_settings": {
+    "cypress_config_file": "./cypress.config.js",
+    "cypress_version": "14.5.0",
+    "project_name": "Go",
+    "build_name": "Test nr",
+    "parallels": 5
+  },
+  "connection_settings": {
+    "local": false
+  }
+}
