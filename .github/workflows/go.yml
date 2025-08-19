@@ -48,14 +48,14 @@ jobs:
             sleep 2
           done
 
-      - name: Install BrowserStack CLI
+      - name: Install BrowserStack Cypress CLI
         run: |
           cd Test
-          npm install browserstack-cli
+          npm install --save-dev browserstack-cypress-cli
       - name: Run BrowserStack e2e
         run: |
           cd Test
-          npx browserstack-cypress run
+          npx browserstack-cypress-cli run
         env:
           BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
           BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
