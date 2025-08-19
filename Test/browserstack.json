@@ -17,6 +17,6 @@
     "parallels": 5
   },
   "connection_settings": {
-    "local": false
+    "local": true
   }
 }
