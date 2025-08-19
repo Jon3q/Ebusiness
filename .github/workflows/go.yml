@@ -1,0 +1,65 @@
+name: BrowserStack + Go
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ Checkout repo
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      # 2️⃣ Setup Go
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: 1.21
+
+      # 3️⃣ Setup Node.js (dla BrowserStack CLI)
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      # 4️⃣ Install Go dependencies
+      - name: Install Go dependencies
+        run: go mod tidy
+        working-directory: Go
+
+      # 5️⃣ Start Go server w tle
+      - name: Start server
+        run: go run . &
+        working-directory: Go
+
+      # 6️⃣ Wait for server (prosty loop sprawdzający endpoint /health)
+      - name: Wait for server
+        run: |
+          for i in {1..10}; do
+            if curl -s http://localhost:8080/health; then
+              echo "Server is up"
+              break
+            fi
+            sleep 2
+          done
+
+      # 7️⃣ Run Go tests
+      - name: Run Go tests
+        run: go test ./... -v
+        working-directory: Go
+
+      # 8️⃣ Install BrowserStack CLI
+      - name: Install BrowserStack CLI
+        run: npm install -g browserstack-cli
+
+      # 9️⃣ Run BrowserStack e2e tests
+      - name: Run BrowserStack e2e
+        run: browserstack-cypress run
+        env:
+          BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
+          BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
