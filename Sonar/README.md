@@ -1,5 +1,3 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Jon3q_Ebusiness&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Jon3q_Ebusiness)
-
 [![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=Jon3q_Ebusiness)](https://sonarcloud.io/summary/new_code?id=Jon3q_Ebusiness)
-
 [![SonarQube Cloud](https://sonarcloud.io/images/project_badges/sonarcloud-dark.svg)](https://sonarcloud.io/summary/new_code?id=Jon3q_Ebusiness)
