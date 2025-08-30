@@ -1,7 +1,7 @@
-import { createContext, useContext, useReducer } from 'react';
-import type { ReactNode } from 'react';
+import { createContext, useContext, useReducer, type ReactNode, type Dispatch } from 'react';
 
 export type CartItem = { id: string; name: string; price: number; qty: number };
+
 type Action =
   | { type: 'add'; item: CartItem }
   | { type: 'remove'; id: string }
@@ -12,9 +12,10 @@ function reducer(state: CartItem[], action: Action): CartItem[] {
     case 'add': {
       const idx = state.findIndex(i => i.id === action.item.id);
       if (idx === -1) return [...state, action.item];
-      const next = [...state];
-      next[idx].qty += action.item.qty;
-      return next;
+
+      return state.map((i, n) =>
+        n === idx ? { ...i, qty: i.qty + action.item.qty } : i
+      );
     }
     case 'remove':
       return state.filter(i => i.id !== action.id);
@@ -25,10 +26,12 @@ function reducer(state: CartItem[], action: Action): CartItem[] {
   }
 }
 
-const CartCtx = createContext<{
+interface CartContext {
   cart: CartItem[];
-  dispatch: React.Dispatch<Action>;
-} | null>(null);
+  dispatch: Dispatch<Action>;
+}
+
+const CartCtx = createContext<CartContext | undefined>(undefined);
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cart, dispatch] = useReducer(reducer, []);
@@ -39,8 +42,10 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   );
 };
 
-export const useCart = () => {
+export const useCart = (): CartContext => {
   const ctx = useContext(CartCtx);
-  if (!ctx) throw new Error('useCart must be inside CartProvider');
+  if (!ctx) {
+    throw new Error('useCart must be used within a CartProvider');
+  }
   return ctx;
 };
