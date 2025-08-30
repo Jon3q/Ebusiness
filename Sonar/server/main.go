@@ -17,6 +17,7 @@ var products = []Product{
 	{ID: "1", Name: "Laptop", Price: 5999},
 	{ID: "2", Name: "Słuchawki", Price: 599},
 	{ID: "3", Name: "Mikrofon", Price: 699},
+	{ID: "4", Name: "Biurko", Price: 899},
 }
 
 func main() {
