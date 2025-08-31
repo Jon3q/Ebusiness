@@ -87,5 +87,31 @@ Zadanie 6 Testy
 
 [Test folder](https://github.com/Jon3q/Ebusiness/tree/main/Test)
 
+Zadanie 7 Sonar
+
+✅ 3.0 Należy dodać litera do odpowiedniego kodu aplikacji serwerowej w hookach gita
+
+✅ 3.5 Należy wyeliminować wszystkie bugi w kodzie w Sonarze (kod aplikacji serwerowej)
+
+✅ 4.0 Należy wyeliminować wszystkie zapaszki w kodzie w Sonarze (kod aplikacji serwerowej)
+
+✅ 4.5 Należy wyeliminować wszystkie podatności oraz błędy bezpieczeństwa w kodzie w Sonarze (kod aplikacji serwerowej)
+
+✅ 5.0 Należy wyeliminować wszystkie błędy oraz zapaszki w kodzie aplikacji klienckiej
+
+[Sonar folder](https://github.com/Jon3q/Ebusiness/tree/main/Sonar)
+
+Zadanie 8 Oauth2
+
+✅ 3.0 logowanie przez aplikację serwerową (bez Oauth2)
+
+✅ 3.5 rejestracja przez aplikację serwerową (bez Oauth2)
+
+✅ 4.0 logowanie via Google OAuth2
+
+✅ 4.5 logowanie via Facebook lub Github OAuth2
+
+❌ 5.0 zapisywanie danych logowania OAuth2 po stronie serwera
+
 [Go folder](https://github.com/Jon3q/Ebusiness/tree/main/Go)
 
