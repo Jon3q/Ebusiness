@@ -113,5 +113,5 @@ Zadanie 8 Oauth2
 
 ❌ 5.0 zapisywanie danych logowania OAuth2 po stronie serwera
 
-[Go folder](https://github.com/Jon3q/Ebusiness/tree/main/Go)
+[Oauth2 folder](https://github.com/Jon3q/Ebusiness/tree/main/Oauth2)
 
